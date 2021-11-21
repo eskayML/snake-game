@@ -13,10 +13,16 @@ let gameOver = false
 
 function main(currentTime) {
     if(gameOver) {
-        if(confirm("You lost, Press OK to restart!")) {
-            window.location = '/'
-        }
+        swal({
+            title:"You lost😥",
+            text: "Click OK to retry.",
+            icon: "warning",
+            buttons: true,
+        })
+        .then( window.location = '/')
     }
+
+    
     window.requestAnimationFrame(main)
     const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000;
     
